@@ -1,22 +1,21 @@
 rsconf = {
-  _id : "rs0",
-  members: [
-      {
-          "_id": 0,
-          "host": "mongodb1:27011",
-          "priority": 3
-      },
-      {
-          "_id": 1,
-          "host": "mongodb2:27012",
-          "priority": 2
-      },
-      {
-          "_id": 2,
-          "host": "mongodb3:27013",
-          "priority": 1
-      }
-  ]
+    _id: "rs0",
+    members: [{
+            "_id": 0,
+            "host": "107.22.130.207:27017",
+            "priority": 3
+        },
+        {
+            "_id": 1,
+            "host": "107.22.130.207:27018",
+            "priority": 2
+        },
+        {
+            "_id": 2,
+            "host": "107.22.130.207:27019",
+            "priority": 1
+        }
+    ]
 }
 
 rs.initiate(rsconf);

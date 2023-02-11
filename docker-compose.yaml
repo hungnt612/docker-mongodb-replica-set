@@ -8,13 +8,13 @@ services:
     volumes:
       - ./volumes/mongodb1:/data/db
     ports:
-      - "27011:27011"
+      - "27017:27017"
     expose:
-      - "27011"
+      - "27017"
     entrypoint:
       [
         "/usr/bin/mongod",
-        "--port", "27011",
+        "--port", "27017",
         "--replSet", "rs0",
         "--bind_ip_all",
       ]
@@ -26,13 +26,13 @@ services:
     volumes:
       - ./volumes/mongodb2:/data/db
     ports:
-      - "27012:27012"
+      - "27018:27018"
     expose:
-      - "27012"
+      - "27018"
     entrypoint:
       [
         "/usr/bin/mongod",
-        "--port", "27012",
+        "--port", "27018",
         "--replSet", "rs0",
         "--bind_ip_all",
       ]
@@ -44,13 +44,13 @@ services:
     volumes:
       - ./volumes/mongodb3:/data/db
     ports:
-      - "27013:27013"
+      - "27019:27019"
     expose:
-      - "27013"
+      - "27019"
     entrypoint:
       [
         "/usr/bin/mongod",
-        "--port", "27013",
+        "--port", "27019",
         "--replSet", "rs0",
         "--bind_ip_all",
       ]
@@ -66,7 +66,7 @@ services:
     container_name: mongo-express
     image: mongo-express
     environment:
-      ME_CONFIG_MONGODB_URL: mongodb://mongodb1:27011,mongodb2:27012,mongodb3:27013/?replicaSet=rs0
+      ME_CONFIG_MONGODB_URL: mongodb://mongodb1:27017,mongodb2:27018,mongodb3:27019/?replicaSet=rs0
     ports:
       - 8081:8081
     restart: always
