@@ -1,4 +1,4 @@
-FROM mongo
+FROM mongo:4.4.18
 RUN mkdir /config
 WORKDIR /config
 COPY wait-for-it.sh .
